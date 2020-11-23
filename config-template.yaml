@@ -1,18 +1,17 @@
 proxy:
-    secretToken: {{ secret_token }}
+    secretToken: "{{ secret_token }}"
 
 singleuser:
   image:
     name: aiidalab/aiidalab-docker-stack
-    #tag: latest
-    tag: 20.02.2
+    tag: 20.11.0
     pullPolicy: Always
   fsGid: 1000
   cmd: /sbin/my_my_init
   extraEnv:
     NB_USER: "aiida"
-    NB_UID: 1000
-    NB_GID: 1000
+    NB_UID: "1000"
+    NB_GID: "1000"
   storage:
     homeMountPath: "/home/aiida"
     dynamic:
