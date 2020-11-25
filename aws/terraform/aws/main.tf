@@ -65,10 +65,12 @@ module "vpc" {
   }
 }
 
+
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
+  version         = "12.2.0"
   cluster_name    = var.cluster_name
-  cluster_version = "1.14"
+  cluster_version = "1.15"
 
   subnets         = module.vpc.private_subnets
   vpc_id          = module.vpc.vpc_id
@@ -191,6 +193,7 @@ module "eks" {
 
 
 provider "helm" {
+  version = "~> 1.3"
   kubernetes {
     host                   = data.aws_eks_cluster.cluster.endpoint
     cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
