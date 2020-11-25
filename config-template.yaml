@@ -53,7 +53,7 @@ hub:
     pvc:
       storageClassName: gp2
   extraConfig: |
-    c.KubeSpawner.http_timeout = 120
+    c.KubeSpawner.http_timeout = 300
     # phusion init system needs to run as root
     c.KubeSpawner.uid = 0
     # Setting the gid was needed to fix 
