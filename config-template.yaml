@@ -1,5 +1,7 @@
 proxy:
     secretToken: "{{ secret_token }}"
+    https:
+      enabled: false
 
 singleuser:
   image:
@@ -15,9 +17,9 @@ singleuser:
   storage:
     homeMountPath: "/home/aiida"
     dynamic:
-      storageClass: cinder-csi
+      storageClass: gp2
   memory:
-    limit: 9G
+    limit: 4G
     guarantee: 3G
   cpu:
     limit: 2.0
@@ -49,7 +51,7 @@ hub:
 #    OAUTH_CALLBACK_URL: "{{ jh_host }}/hub/oauth_callback"
   db:
     pvc:
-      storageClassName: cinder-csi
+      storageClassName: gp2
   extraConfig: |
     c.KubeSpawner.http_timeout = 120
     # phusion init system needs to run as root
