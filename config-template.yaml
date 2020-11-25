@@ -17,9 +17,9 @@ singleuser:
   storage:
     homeMountPath: "/home/aiida"
     dynamic:
-      storageClass: gp2
+      storageClass: aws-efs
   memory:
-    limit: 4G
+    limit: 8G
     guarantee: 3G
   cpu:
     limit: 2.0
