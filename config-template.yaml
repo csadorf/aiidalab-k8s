@@ -1,7 +1,10 @@
 proxy:
     secretToken: "{{ secret_token }}"
     https:
-      enabled: false
+      hosts:
+        - aiidalab-tutorials.materialscloud.org
+      letsencrypt:
+        contactEmail: simon.adorf@epfl.ch
 
 singleuser:
   image:
