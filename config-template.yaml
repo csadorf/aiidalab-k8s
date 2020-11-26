@@ -29,12 +29,6 @@ singleuser:
     guarantee: .5
   startTimeout: 180
 
-auth:
-  custom:
-    className: firstuseauthenticator.FirstUseAuthenticator
-    config:
-      create_users: True
-
 ## OIDC example 
 #  type: custom
 #  custom:
@@ -66,6 +60,13 @@ hub:
 
       # insert template path for custom login template
       c.JupyterHub.template_paths.insert(0, "/etc/jupyterhub/templates")
+
+      c.JupyterHub.authenticator_class = 'firstuseauthenticator.FirstUseAuthenticator'
+
+auth:
+  admin:
+    users:
+      - csadorf
 
 #    # overwrite logout handler to also log out of main Materials Cloud site
 #    # https://github.com/jupyterhub/jupyterhub/blob/master/jupyterhub/handlers/login.py#L14
