@@ -117,11 +117,13 @@ module "eks" {
 
   worker_groups_launch_template = [
     {
-      name                    = "user-spot"
+      name                    = "user-mixed-demand-spot"
       override_instance_types = ["m5.2xlarge", "m4.2xlarge"]
       spot_instance_pools     = 2
-      asg_max_size            = 20
+      on_demand_base_capacity = 10
+      on_demand_percentage_above_base_capacity = 25
       asg_min_size            = 0
+      asg_max_size            = 50
       asg_desired_capacity    = 0
 
       # Use this to set labels / taints
