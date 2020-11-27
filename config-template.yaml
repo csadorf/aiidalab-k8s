@@ -9,7 +9,7 @@ proxy:
 singleuser:
   image:
     name: aiidalab/aiidalab-docker-stack
-    tag: sha-7d7c0af
+    tag: sha-2566a7f
     pullPolicy: Always
   fsGid: 1000
   cmd: /sbin/my_my_init
