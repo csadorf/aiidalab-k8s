@@ -56,7 +56,7 @@ def user(jupyter_hub, credentials):
             try:
                 jupyter_hub.delete_user(credentials['username'])
             except HTTPError as error:
-                if error.response.status_code == '400':
+                if error.response.status_code == 400:
                     continue  # try again
                 raise
             else:
